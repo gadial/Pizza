@@ -1,0 +1,24 @@
+<h1>Editing pizza</h1>
+
+<% form_for(@pizza) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </p>
+  <p>
+    <%= f.label :kosher %><br />
+    <%= f.check_box :kosher %>
+  </p>
+  <p>
+    <%= f.label :slices %><br />
+    <%= f.text_field :slices %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @pizza %> |
+<%= link_to 'Back', pizzas_path %>

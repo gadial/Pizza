@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  price: 1
+  kosher: false
+  slices: 1
+
+two:
+  price: 1
+  kosher: false
+  slices: 1

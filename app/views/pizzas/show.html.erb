@@ -1,0 +1,18 @@
+<p>
+  <b>Price:</b>
+  <%=h @pizza.price %>
+</p>
+
+<p>
+  <b>Kosher:</b>
+  <%=h @pizza.kosher %>
+</p>
+
+<p>
+  <b>Slices:</b>
+  <%=h @pizza.slices %>
+</p>
+
+
+<%= link_to 'Edit', edit_pizza_path(@pizza) %> |
+<%= link_to 'Back', pizzas_path %>

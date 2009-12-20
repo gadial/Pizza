@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyText
+  default_price: 1
+  kosher: false
+  delivery_price: 1
+
+two:
+  name: MyText
+  default_price: 1
+  kosher: false
+  delivery_price: 1
