@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>פיצות!</title>
+  <%= stylesheet_link_tag 'style' %>
+</head>
+<body>
+
+<div id="header">
+  <h1>האם אתם רוצים לזלול פיצות?</h1>
+    <div id="menu">
+    <ul id="nav">
+      <li><%= link_to "למקום שאיננו קיים עדיין", :action => "logout" %></li>
+    </ul>
+  </div>
+</div>
+<div id="content">
+  <p style="color: green"><%= flash[:notice] %></p>
+  <p style="color: red"><%= flash[:error] %></p>
+  <div id="right">
+    <div class="box">
+      <%= yield  %>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

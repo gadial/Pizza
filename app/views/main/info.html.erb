@@ -1,0 +1,5 @@
+<h1>מבט כולל על מסד הנתונים</h1>
+<h2>משתמשים</h2>
+<% for user in User.find(:all) %>
+<p> <%= user.name %> </p>
+<% end %>
