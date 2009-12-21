@@ -3,3 +3,8 @@
 <% for user in User.find(:all) %>
 <p> <%= user.name %> </p>
 <% end %>
+
+<h2>תוספות</h2>
+<% for topping in Topping.find(:all) %>
+<p> <%= topping.name %> </p>
+<% end %>

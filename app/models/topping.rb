@@ -1,3 +1,3 @@
 class Topping < ActiveRecord::Base
-  belongs_to :pizza
+  has_and_belongs_to_many :pizzas
 end

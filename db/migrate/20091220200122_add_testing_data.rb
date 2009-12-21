@@ -1,6 +1,6 @@
 class AddTestingData < ActiveRecord::Migration
   def self.up
-    users = File.open("public/users.dat","r") {|file| file.read.split("\n")}
+    users = File.open("public/datafiles/users.dat","r") {|file| file.read.split("\n")}
     users.collect!{|line| line.split("\t")}
     users.each do |user_data|
       User.new do |user|
@@ -8,6 +8,16 @@ class AddTestingData < ActiveRecord::Migration
         user.save
       end
     end
+
+    toppings = File.open("public/datafiles/toppings.dat","r") {|file| file.read.split("\n")}
+    toppings.collect!{|line| line.split("\t")}
+    toppings.each do |topping_data|
+      Topping.new do |topping|
+        topping.name = topping_data[0]
+        topping.save
+      end
+    end
+
   end
 
   def self.down

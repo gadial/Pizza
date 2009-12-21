@@ -1,0 +1,10 @@
+<h1>מערכת הזמנות</h1>
+<h2>הזמנות פעילות:</h2>
+<%# for order in Order.find_by_active(true) do %>
+<% for order in Order.find_all_by_active(true) do %>
+  <p>הזמנה מספר <%= order.id %>: מתאריך <%= order.datetime %>. <%= link_to "Join in", url_for(:action => :order, :order_id => order.id)%></p>
+<% end %>
+
+<% form_for :order, :url => {:controller => :main, :action => :add_order} do |form|  %>
+  <%= submit_tag "הזמנה חדשה"  %>
+<% end %>

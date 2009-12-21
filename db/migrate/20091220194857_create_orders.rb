@@ -1,8 +1,8 @@
 class CreateOrders < ActiveRecord::Migration
   def self.up
     create_table :orders do |t|
-      t.date :date
-
+      t.datetime :datetime
+      t.boolean :active
       t.timestamps
     end
   end

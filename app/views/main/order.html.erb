@@ -1,0 +1,43 @@
+<h1>הזמנת פיצה</h1>
+<h2>פרטי ההזמנה</h2>
+<p>
+  Date:<%= @order.datetime %>
+</p>
+<p>
+  Order no. <%= @order.id %>
+</p>
+
+<table border="1">
+  <tr>
+    <th>
+      מזמין
+    </th>
+    <th>
+      מספר משולשים
+    </th>
+  </tr>
+  <% for pizza in @order.pizzas do %>
+  <tr>
+    <td>
+      <%= pizza.user.name %>
+    </td>
+    <td>
+      <%= pizza.slices %>
+    </td>
+    <td>
+      <%= link_to 'מחק', {:action => :delete_pizza, :id => pizza}, {:method => :delete} %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+<% form_for :pizza, :url => {:controller => :main, :action => :add_pizza} do |form|  %>
+<%= form.hidden_field :order, :value => @order.id %>
+<%= form.label "משתמש: "  %>
+<%= form.select :user, User.find(:all).collect{|u| u.name} %>
+<%= form.label "מספר משולשים: "  %>
+<%= form.select :slices, (1..8).to_a %>
+<%= submit_tag "הוסף"  %>
+<% end %>
+
+<%= link_to "Back", :action => :index %>

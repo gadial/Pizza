@@ -2,9 +2,9 @@ class CreatePizzas < ActiveRecord::Migration
   def self.up
     create_table :pizzas do |t|
       t.integer :price
-      t.boolean :kosher
       t.integer :slices
-
+      t.integer :order_id
+      t.integer :user_id
       t.timestamps
     end
   end
