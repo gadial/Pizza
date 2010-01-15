@@ -15,6 +15,9 @@
     <th>
       מספר משולשים
     </th>
+    <th>
+תוספות
+    </th>
   </tr>
   <% for pizza in @order.pizzas do %>
   <tr>
@@ -23,6 +26,15 @@
     </td>
     <td>
       <%= pizza.slices %>
+    </td>
+    <td>
+      <%#= pizza.toppings.collect{|t| t.name}.join(", ") %>
+      <%= pizza.toppings.collect{|t| link_to(t.name,{:action => :delete_topping, :id => pizza, :topping => t},{:method => :delete})}.join(", ") %>
+      <% form_tag :action => :add_topping do %>
+      <%= hidden_field_tag "Pizza", pizza.id %>
+      <%= select_tag "Topping", options_for_select(Topping.find(:all).collect{|x| x.name}.sort) %>
+      <%= submit_tag "הוסף" %>
+      <% end %>
     </td>
     <td>
       <%= link_to 'מחק', {:action => :delete_pizza, :id => pizza}, {:method => :delete} %>

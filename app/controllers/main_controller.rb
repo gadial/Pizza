@@ -35,4 +35,30 @@ class MainController < ApplicationController
     pizza.destroy
     redirect_to :action => :order
   end
+  def add_topping
+    pizza = Pizza.find_by_id(params[:Pizza])
+    topping = Topping.find_by_name(params[:Topping])
+    pizza.toppings << topping unless pizza.toppings.include?(topping)
+    pizza.save
+    redirect_to :action => :order
+  end
+  def delete_topping
+    pizza = Pizza.find_by_id(params[:id])
+    topping = Topping.find_by_id(params[:topping])
+    pizza.toppings.delete(topping)
+    redirect_to :action => :order
+  end
+  def toggle_order_activity
+    order = Order.find_by_id(params[:id])
+    order.active = (not order.active)
+    order.save
+    if order.active
+      redirect_to :action => :history
+    else
+      redirect_to :action => :index
+    end
+  end
+  def history
+  
+  end
 end
